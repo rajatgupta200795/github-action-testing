@@ -37,7 +37,7 @@ jobs:
           uses: stCarolas/setup-maven@v4.2    
 
         - name: Publish to harbor - latest
-          run: echo ${{ BRANCH_NAME }}
+          run: echo $BRANCH_NAME 
 
 #         - name: Publish to harbor - CI
 #           run: |

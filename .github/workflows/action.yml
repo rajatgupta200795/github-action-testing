@@ -14,7 +14,7 @@ jobs:
       PROJECT_NAME: 'bicdd'
       HARBOR_HOST: 'harbor.trssllc.com'
       HARBOR_PROJECT: 'rapid'
-      HARBOR_REPO: ${{ env.HARBOR_HOST }}/${{ env.HARBOR_PROJECT }}/${{ env.$PROJECT_NAME }}"  
+      HARBOR_REPO: "${{ env.HARBOR_HOST }}/${{ env.HARBOR_PROJECT }}/${{ env.$PROJECT_NAME }}"  
     steps:
         - uses: actions/checkout@v2
 

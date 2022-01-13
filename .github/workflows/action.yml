@@ -14,7 +14,8 @@ jobs:
       PROJECT_NAME: 'bicdd'
       HARBOR_HOST: 'harbor.trssllc.com'
       HARBOR_PROJECT: 'rapid'
-#       HARBOR_REPO: "${{ env.HARBOR_HOST }}/${{ env.HARBOR_PROJECT }}/${{ env.$PROJECT_NAME }}"  
+      HARBOR_REPO: 'harbor.trssllc.com/rapid/bicdd' 
+      
     steps:
         - uses: actions/checkout@v2
 
@@ -27,8 +28,8 @@ jobs:
         - name: Setup Maven
           uses: stCarolas/setup-maven@v4.2    
 
-        - name: testing snv
-          run: echo ${{ env.HARBOR_HOST }}
+        - name: testing env
+          run: echo ${{ env.HARBOR_REPO }}
 
   #   Publish to harbor - latest:
   #     runs-on: ubuntu-latest        

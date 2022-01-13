@@ -25,8 +25,7 @@ jobs:
             echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
           
         - name: Check output
-          env: 
-            BRANCH_NAME: ${{ steps.vars.outputs.short_ref }}
+          run: BRANCH_NAME=${{ steps.vars.outputs.short_ref }}
 
         - name: Setup Java JDK
           uses: actions/setup-java@v2.5.0
@@ -38,7 +37,7 @@ jobs:
           uses: stCarolas/setup-maven@v4.2    
 
         - name: Publish to harbor - latest
-          run: echo ${{ env.BRANCH_NAME }}
+          run: echo ${{ BRANCH_NAME }}
 
 #         - name: Publish to harbor - CI
 #           run: |

@@ -21,10 +21,12 @@ jobs:
         
         - name: Creating SetUp
           id: vars
-          run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+          run: |
+            echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+            echo ${{ steps.vars.outputs.short_ref }}
           
-        - name: Check output
-          run: echo ${{ steps.vars.outputs.short_ref }}
+#         - name: Check output
+#           run: echo ${{ steps.vars.outputs.short_ref }}
 
         - name: Setup Java JDK
           uses: actions/setup-java@v2.5.0

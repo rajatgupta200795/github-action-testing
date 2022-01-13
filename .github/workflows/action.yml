@@ -20,7 +20,7 @@ jobs:
         - uses: actions/checkout@v2
         
         - name: Creating SetUp
-          run: echo ${{ github.head_ref }}
+          run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
           
 
         - name: Setup Java JDK

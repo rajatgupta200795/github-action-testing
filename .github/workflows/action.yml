@@ -8,8 +8,17 @@ on:
 
 jobs:
 
+  :
+    runs-on: ubuntu-latest        
+
+
   build:
     runs-on: ubuntu-latest
+    env: 
+      PROJECT_NAME = 'bicdd'
+      HARBOR_HOST = 'harbor.trssllc.com'
+      HARBOR_PROJECT = 'rapid'
+      HARBOR_REPO = ${{ HARBOR_HOST }}/${{ HARBOR_PROJECT }}/${{ $PROJECT_NAME }}"
 
     steps:
       - uses: actions/checkout@v2
@@ -17,14 +26,25 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.5.0
         with:
-          distribution: 'adopt' # See 'Supported distributions' for available options
+          distribution: 'adopt' 
           java-version: '8'
           
       - name: Setup Maven
         uses: stCarolas/setup-maven@v4.2    
+        
+      - name: testing snv
+        run: echo ${{ HARBOR_REPO }}
+
+#   Publish to harbor - latest:
+#     runs-on: ubuntu-latest        
+  
+#   Publish to harbor - CI:
+#     runs-on: ubuntu-latest     
+  
+#   Publish to harbor - POM:
+#     runs-on: ubuntu-latest               
+  
+#   Cleanup:
+#     runs-on: ubuntu-latest        
           
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+

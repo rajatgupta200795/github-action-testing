@@ -19,14 +19,14 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         
-        - name: Creating SetUp
+        - name: Getting Current Branch
           id: vars
           run: |
             echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-            echo ${{ steps.vars.outputs.short_ref }}
           
-#         - name: Check output
-#           run: echo ${{ steps.vars.outputs.short_ref }}
+        - name: Check output
+          env: 
+            BRANCH_NAME: ${{ steps.vars.outputs.short_ref }}
 
         - name: Setup Java JDK
           uses: actions/setup-java@v2.5.0
@@ -37,8 +37,8 @@ jobs:
         - name: Setup Maven
           uses: stCarolas/setup-maven@v4.2    
 
-#         - name: Publish to harbor - latest
-#           run:       
+        - name: Publish to harbor - latest
+          run: echo ${{ env.BRANCH_NAME }}
 
 #         - name: Publish to harbor - CI
 #           run: |

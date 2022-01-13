@@ -28,7 +28,7 @@ jobs:
           uses: stCarolas/setup-maven@v4.2    
 
         - name: testing snv
-          run: echo ${{ HARBOR_REPO }}
+          run: echo ${{ env.HARBOR_REPO }}
 
   #   Publish to harbor - latest:
   #     runs-on: ubuntu-latest        

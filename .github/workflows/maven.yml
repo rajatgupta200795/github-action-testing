@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -22,29 +22,15 @@ jobs:
       run: |
         mvn -B package --file pom.xml
         
-    - name: Upload Jar File
-      uses: actions/upload-artifact@v2
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
       with:
-        name: JarFile
-        path: target/hello-world-0.1.0.jar 
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-  image: 
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v2
-        with:
-          name: JarFile
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: rajat2007/hello-world-java:latest
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: rajat2007/hello-world-java:latest

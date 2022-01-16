@@ -27,5 +27,5 @@ jobs:
       with:
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_PASSWORD }}
-       repository: dockerHubUser/dockerHubRepository
+       repository: rajat2007/hello-world-java
        tags: ${{github.run_number}}

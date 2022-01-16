@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: JarFile
-        path: /target/hello-world-0.1.0.jar 
+        path: target/hello-world-0.1.0.jar 
 
   image: 
     runs-on: ubuntu-latest

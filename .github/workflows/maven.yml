@@ -1,12 +1,10 @@
-name: CI CD Pipeline
+name: CI Pipeline
 
 on:
   push:
-    branches: [ main, master ]
-    paths-ignore: [.github/**']
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
-    paths-ignore: [.github/**']
+    branches: [ main ]
 
 jobs:
   CI:

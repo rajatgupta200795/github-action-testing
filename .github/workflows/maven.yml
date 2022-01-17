@@ -24,7 +24,7 @@ jobs:
         ls 
         pwd
         ls /target/
-        java -jar /target/hello-world-0-1-0.jar
+        java -jar target/hello-world-0-1-0.jar
         
         
     - name: Publish to Docker Hub

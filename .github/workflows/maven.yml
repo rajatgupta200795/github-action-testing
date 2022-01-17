@@ -23,7 +23,7 @@ jobs:
         mvn -B package --file pom.xml
         ls 
         pwd
-        ls /target/
+        ls target/
         java -jar target/hello-world-0-1-0.jar
         
         

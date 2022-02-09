@@ -58,9 +58,9 @@ jobs:
 
     - name: Shell 
       run: |
-          echo ${{ steps.meta.outputs.tags }}
-          echo ${{ steps.meta.outputs.labels }
-          echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+        echo ${{ steps.meta.outputs.tags }}
+        echo ${{ steps.meta.outputs.labels }
+        echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
 
 
 

@@ -48,18 +48,16 @@ jobs:
 #       with:
 #         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-      with:
-        context: .
-        push: true
-        tags: $(git rev-parse --short "$GITHUB_SHA")
+#     - name: Build and push Docker image
+#       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+#       with:
+#         context: .
+#         push: true
+#         tags: $(git rev-parse --short "$GITHUB_SHA")
 
-#     - name: Shell 
-#       run: |
-#         echo ${{ steps.meta.outputs.tags }}
-#         echo ${{ steps.meta.outputs.labels }
-#         echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+    - name: Shell 
+      run: |
+        echo $(git rev-parse --short "$GITHUB_SHA")
 
 
 

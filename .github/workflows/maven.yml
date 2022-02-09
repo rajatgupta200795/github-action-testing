@@ -54,11 +54,8 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ steps.slug.outputs.sha8 }}
-
-    - name: Shell 
-      run: |
-        echo $(git rev-parse --short "$GITHUB_SHA")
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }})
 
 
 
